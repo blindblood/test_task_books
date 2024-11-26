@@ -52,6 +52,7 @@ class BooksManager:
         with open(self.data_file, mode='w', encoding='utf-8') as file:
             data = [book.to_dict() for book in self._books.values()]
             json.dump(data, file, ensure_ascii=False, indent=4)
+            file.flush()
 
     def add_book(self, book: Book) -> None:
         """
